@@ -13,7 +13,7 @@ class SDBSelectIterator implements Iterator {
 
 	public function __construct($query, $parser = false) {
 		if(!class_exists('AmazonSDB')){
-			require_once('AWSSDKforPHP/sdk.class.php');
+			require('AWSSDKforPHP/sdk.class.php');
 		}
 		$this->position = 0;
 		$this->total_position = 0;
