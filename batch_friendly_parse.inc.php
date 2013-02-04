@@ -31,10 +31,12 @@ echo "Success!  Cloned $rows_cloned rows in $batches_cloned batches.<br>";
 
 
 function batch_friendly_sdb_parse($item){
+	$return = array();
+	
 	// Loop through the item's attributes
 	foreach ($item->Attribute as $attribute){
 		$column_name = (string) $attribute->Name;
-		if($return[$column_name] and is_string($return[$column_name])){
+		if($return[$column_name] and !is_array($return[$column_name])){
 			//2nd attribute with same col name, make it an array
 			$return[$column_name] = array(
 				$return[$column_name],
